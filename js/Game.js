@@ -34,21 +34,12 @@ game.load.image('erro','imgs/erro.png');
 
 function create(){
     
-function avaliaResposta (){
-    if(drag1.x == 30){
-    acerto1.visible = true;
-    acerto1.bringToTop;
-    }
-    else{
-    erro1.visible = true;
-    acerto1.bringToTop;
-    }
 
-}
 
 
 game.stage.backgroundColor = '#fff';
 bg = game.add.sprite(0, 0, 'bg');
+
 drop1 = game.add.sprite(30,50,  'drop');
 drop2 = game.add.sprite(180,50, 'drop');
 drop3 = game.add.sprite(330,50, 'drop');
@@ -60,27 +51,27 @@ drop8 = game.add.sprite(330,100, 'drop');
 drop9 = game.add.sprite(480,100, 'drop');
 drop10 = game.add.sprite(630,100, 'drop');
 
-acerto1 = game.add.sprite(139,59,'acerto');
-acerto2 = game.add.sprite(289,59,'acerto');
-acerto3 = game.add.sprite(439,59,'acerto');
-acerto4 = game.add.sprite(589,59,'acerto');
-acerto5 = game.add.sprite(739,59,'acerto');
-acerto6 = game.add.sprite(139,109,'acerto');
-acerto7 = game.add.sprite(289,109,'acerto');
-acerto8 = game.add.sprite(439,109,'acerto');
-acerto9 = game.add.sprite(589,109,'acerto');
-acerto10 = game.add.sprite(739,109,'acerto');
+acerto1 = game.add.sprite(30,39,'acerto');
+acerto2 = game.add.sprite(180,39,'acerto');
+acerto3 = game.add.sprite(330,39,'acerto');
+acerto4 = game.add.sprite(480,39,'acerto');
+acerto5 = game.add.sprite(630,39,'acerto');
+acerto6 = game.add.sprite(30,89,'acerto');
+acerto7 = game.add.sprite(180,89,'acerto');
+acerto8 = game.add.sprite(330,89,'acerto');
+acerto9 = game.add.sprite(480,89,'acerto');
+acerto10 = game.add.sprite(630,89,'acerto');
 
-erro1 = game.add.sprite(139,69,'erro');
-erro2 = game.add.sprite(289,69,'erro');
-erro3 = game.add.sprite(439,69,'erro');
-erro4 = game.add.sprite(589,69,'erro');
-erro5 = game.add.sprite(739,69,'erro');
-erro6 = game.add.sprite(139,119,'erro');
-erro7 = game.add.sprite(289,119,'erro');
-erro8 = game.add.sprite(439,119,'erro');
-erro9 = game.add.sprite(589,119,'erro');
-erro10 = game.add.sprite(739,119,'erro');
+erro1 = game.add.sprite(30,39,'erro');
+erro2 = game.add.sprite(180,39,'erro');
+erro3 = game.add.sprite(330,39,'erro');
+erro4 = game.add.sprite(480,39,'erro');
+erro5 = game.add.sprite(630,39,'erro');
+erro6 = game.add.sprite(30,89,'erro');
+erro7 = game.add.sprite(180,89,'erro');
+erro8 = game.add.sprite(330,89,'erro');
+erro9 = game.add.sprite(480,89,'erro');
+erro10 = game.add.sprite(630,89,'erro');
 
 
 acerto1.visible = false;
@@ -175,6 +166,18 @@ responder = game.add.sprite(630,200, 'responder');
 drag1 = game.add.sprite(300,200,'drag1');
 drag1.inputEnabled = true;
 drag1.input.enableDrag(true);
+
+function avaliaResposta (){
+    if(drag1.x == 30){
+    acerto1.visible = true;
+    acerto1.bringToTop;
+    }
+    else{
+    erro1.visible = true;
+    acerto1.bringToTop;
+    }
+
+}
 
 
 drag1.events.onDragStop.add(dropHandler, this);

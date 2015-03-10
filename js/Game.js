@@ -15,7 +15,7 @@ Atividade1.Feedback = function(){ };
  
 
 //Global configuration
-var game = new Phaser.Game(800, 450, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
+var game = new Phaser.Game(680, 260, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
 
 function preload(){
 
@@ -35,7 +35,7 @@ game.load.image('erro','imgs/erro.png');
 function create(){
     
 
-//Setar as respostas
+//Seta as respostas
 var gabarito1 = false;
 var gabarito2 = false;
 var gabarito3 = false;
@@ -48,27 +48,27 @@ var gabarito9 = false;
 var gabarito10 = false;
 
 
-//Variáveis relativas
-var drop1_x = 30 ;
-var drop1_y = 50 ;
-var drop2_x = 180 ;
-var drop2_y = 50 ;
-var drop3_x = 330 ;
-var drop3_y = 50 ;
-var drop4_x = 480 ;
-var drop4_y = 50 ;
-var drop5_x = 630 ;
-var drop5_y = 50 ;
-var drop6_x = 30 ;
-var drop6_y = 100 ;
-var drop7_x = 180 ;
-var drop7_y = 100 ;
-var drop8_x = 330 ;
-var drop8_y = 100 ;
-var drop9_x = 480 ;
-var drop9_y = 100 ;
-var drop10_x = 630 ;
-var drop10_y = 100 ;
+//Variáveis que guardam as posições corretas
+var drop1_x = 25;
+var drop1_y = 50;
+var drop2_x = 150;
+var drop2_y = 50;
+var drop3_x = 275;
+var drop3_y = 50;
+var drop4_x = 400;
+var drop4_y = 50;
+var drop5_x = 525;
+var drop5_y = 50;
+var drop6_x = 25;
+var drop6_y = 100;
+var drop7_x = 150;
+var drop7_y = 100;
+var drop8_x = 275;
+var drop8_y = 100;
+var drop9_x = 400;
+var drop9_y = 100;
+var drop10_x = 525;
+var drop10_y = 100;
 
 
 
@@ -88,27 +88,27 @@ drop8 = game.add.sprite(drop8_x,drop8_y,    'drop');
 drop9 = game.add.sprite(drop9_x,drop9_y,    'drop');
 drop10 = game.add.sprite(drop10_x,drop10_y, 'drop');
 
-acerto1 = game.add.sprite(drop1_x,(drop1_y-11),'acerto');
-acerto2 = game.add.sprite(drop2_x,(drop2_y-11),'acerto');
-acerto3 = game.add.sprite(drop3_x,(drop3_y-11),'acerto');
-acerto4 = game.add.sprite(drop4_x,(drop4_y-11),'acerto');
-acerto5 = game.add.sprite(drop5_x,(drop5_y-11),'acerto');
-acerto6 = game.add.sprite(drop6_x,(drop6_y-11),'acerto');
-acerto7 = game.add.sprite(drop7_x,(drop7_y-11),'acerto');
-acerto8 = game.add.sprite(drop8_x,(drop8_y-11),'acerto');
-acerto9 = game.add.sprite(drop9_x,(drop9_y-11),'acerto');
-acerto10 = game.add.sprite(drop10_x,(drop10_y-11),'acerto');
+acerto1 = game.add.sprite(drop1_x,(drop1_y-10),'acerto');
+acerto2 = game.add.sprite(drop2_x,(drop2_y-10),'acerto');
+acerto3 = game.add.sprite(drop3_x,(drop3_y-10),'acerto');
+acerto4 = game.add.sprite(drop4_x,(drop4_y-10),'acerto');
+acerto5 = game.add.sprite(drop5_x,(drop5_y-10),'acerto');
+acerto6 = game.add.sprite(drop6_x,(drop6_y-10),'acerto');
+acerto7 = game.add.sprite(drop7_x,(drop7_y-10),'acerto');
+acerto8 = game.add.sprite(drop8_x,(drop8_y-10),'acerto');
+acerto9 = game.add.sprite(drop9_x,(drop9_y-10),'acerto');
+acerto10 = game.add.sprite(drop10_x,(drop10_y-10),'acerto');
 
-erro1 = game.add.sprite(drop1_x,(drop1_y-11),'erro');
-erro2 = game.add.sprite(drop2_x,(drop2_y-11),'erro');
-erro3 = game.add.sprite(drop3_x,(drop3_y-11),'erro');
-erro4 = game.add.sprite(drop4_x,(drop4_y-11),'erro');
-erro5 = game.add.sprite(drop5_x,(drop5_y-11),'erro');
-erro6 = game.add.sprite(drop6_x,(drop6_y-11),'erro');
-erro7 = game.add.sprite(drop7_x,(drop7_y-11),'erro');
-erro8 = game.add.sprite(drop8_x,(drop8_y-11),'erro');
-erro9 = game.add.sprite(drop9_x,(drop9_y-11),'erro');
-erro10 = game.add.sprite(drop10_x,(drop10_y-11),'erro');
+erro1 = game.add.sprite(drop1_x,(drop1_y-10),'erro');
+erro2 = game.add.sprite(drop2_x,(drop2_y-10),'erro');
+erro3 = game.add.sprite(drop3_x,(drop3_y-10),'erro');
+erro4 = game.add.sprite(drop4_x,(drop4_y-10),'erro');
+erro5 = game.add.sprite(drop5_x,(drop5_y-10),'erro');
+erro6 = game.add.sprite(drop6_x,(drop6_y-10),'erro');
+erro7 = game.add.sprite(drop7_x,(drop7_y-10),'erro');
+erro8 = game.add.sprite(drop8_x,(drop8_y-10),'erro');
+erro9 = game.add.sprite(drop9_x,(drop9_y-10),'erro');
+erro10 = game.add.sprite(drop10_x,(drop10_y-10),'erro');
 
 
 

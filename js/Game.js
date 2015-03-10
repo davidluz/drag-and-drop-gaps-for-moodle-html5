@@ -35,43 +35,86 @@ game.load.image('erro','imgs/erro.png');
 function create(){
     
 
+//Setar as respostas
+var gabarito1 = false;
+var gabarito2 = false;
+var gabarito3 = false;
+var gabarito4 = false;
+var gabarito5 = false;
+var gabarito6 = false;
+var gabarito7 = false;
+var gabarito8 = false;
+var gabarito9 = false;
+var gabarito10 = false;
 
 
+//Variáveis relativas
+var drop1_x = 30 ;
+var drop1_y = 50 ;
+var drop2_x = 180 ;
+var drop2_y = 50 ;
+var drop3_x = 330 ;
+var drop3_y = 50 ;
+var drop4_x = 480 ;
+var drop4_y = 50 ;
+var drop5_x = 630 ;
+var drop5_y = 50 ;
+var drop6_x = 30 ;
+var drop6_y = 100 ;
+var drop7_x = 180 ;
+var drop7_y = 100 ;
+var drop8_x = 330 ;
+var drop8_y = 100 ;
+var drop9_x = 480 ;
+var drop9_y = 100 ;
+var drop10_x = 630 ;
+var drop10_y = 100 ;
+
+
+
+//Sprites do State
 game.stage.backgroundColor = '#fff';
 bg = game.add.sprite(0, 0, 'bg');
 
-drop1 = game.add.sprite(30,50,  'drop');
-drop2 = game.add.sprite(180,50, 'drop');
-drop3 = game.add.sprite(330,50, 'drop');
-drop4 = game.add.sprite(480,50, 'drop');
-drop5 = game.add.sprite(630,50, 'drop');
-drop6 = game.add.sprite(30,100, 'drop');
-drop7 = game.add.sprite(180,100, 'drop');
-drop8 = game.add.sprite(330,100, 'drop');
-drop9 = game.add.sprite(480,100, 'drop');
-drop10 = game.add.sprite(630,100, 'drop');
 
-acerto1 = game.add.sprite(30,39,'acerto');
-acerto2 = game.add.sprite(180,39,'acerto');
-acerto3 = game.add.sprite(330,39,'acerto');
-acerto4 = game.add.sprite(480,39,'acerto');
-acerto5 = game.add.sprite(630,39,'acerto');
-acerto6 = game.add.sprite(30,89,'acerto');
-acerto7 = game.add.sprite(180,89,'acerto');
-acerto8 = game.add.sprite(330,89,'acerto');
-acerto9 = game.add.sprite(480,89,'acerto');
-acerto10 = game.add.sprite(630,89,'acerto');
+drop1 = game.add.sprite(drop1_x,drop1_y,   'drop');
+drop2 = game.add.sprite(drop2_x,drop2_y,   'drop');
+drop3 = game.add.sprite(drop3_x,drop3_y,   'drop');
+drop4 = game.add.sprite(drop4_x,drop4_y,   'drop');
+drop5 = game.add.sprite(drop5_x,drop5_y,   'drop');
+drop6 = game.add.sprite(drop6_x,drop6_y,   'drop');
+drop7 = game.add.sprite(drop7_x,drop7_y,   'drop');
+drop8 = game.add.sprite(drop8_x,drop8_y,    'drop');
+drop9 = game.add.sprite(drop9_x,drop9_y,    'drop');
+drop10 = game.add.sprite(drop10_x,drop10_y, 'drop');
 
-erro1 = game.add.sprite(30,39,'erro');
-erro2 = game.add.sprite(180,39,'erro');
-erro3 = game.add.sprite(330,39,'erro');
-erro4 = game.add.sprite(480,39,'erro');
-erro5 = game.add.sprite(630,39,'erro');
-erro6 = game.add.sprite(30,89,'erro');
-erro7 = game.add.sprite(180,89,'erro');
-erro8 = game.add.sprite(330,89,'erro');
-erro9 = game.add.sprite(480,89,'erro');
-erro10 = game.add.sprite(630,89,'erro');
+acerto1 = game.add.sprite(drop1_x,(drop1_y-11),'acerto');
+acerto2 = game.add.sprite(drop2_x,(drop2_y-11),'acerto');
+acerto3 = game.add.sprite(drop3_x,(drop3_y-11),'acerto');
+acerto4 = game.add.sprite(drop4_x,(drop4_y-11),'acerto');
+acerto5 = game.add.sprite(drop5_x,(drop5_y-11),'acerto');
+acerto6 = game.add.sprite(drop6_x,(drop6_y-11),'acerto');
+acerto7 = game.add.sprite(drop7_x,(drop7_y-11),'acerto');
+acerto8 = game.add.sprite(drop8_x,(drop8_y-11),'acerto');
+acerto9 = game.add.sprite(drop9_x,(drop9_y-11),'acerto');
+acerto10 = game.add.sprite(drop10_x,(drop10_y-11),'acerto');
+
+erro1 = game.add.sprite(drop1_x,(drop1_y-11),'erro');
+erro2 = game.add.sprite(drop2_x,(drop2_y-11),'erro');
+erro3 = game.add.sprite(drop3_x,(drop3_y-11),'erro');
+erro4 = game.add.sprite(drop4_x,(drop4_y-11),'erro');
+erro5 = game.add.sprite(drop5_x,(drop5_y-11),'erro');
+erro6 = game.add.sprite(drop6_x,(drop6_y-11),'erro');
+erro7 = game.add.sprite(drop7_x,(drop7_y-11),'erro');
+erro8 = game.add.sprite(drop8_x,(drop8_y-11),'erro');
+erro9 = game.add.sprite(drop9_x,(drop9_y-11),'erro');
+erro10 = game.add.sprite(drop10_x,(drop10_y-11),'erro');
+
+
+
+drag1 = game.add.sprite(300,200,'drag1');
+drag1.inputEnabled = true;
+drag1.input.enableDrag(true);
 
 
 acerto1.visible = false;
@@ -98,7 +141,7 @@ erro9.visible = false;
 erro10.visible = false;
 
 responder = game.add.sprite(630,200, 'responder');
-
+responder.inputEnabled = true;
 
 // Controla o Drop dos itens 	
 	function dropHandler() {
@@ -163,9 +206,11 @@ responder = game.add.sprite(630,200, 'responder');
         
         }
 
-drag1 = game.add.sprite(300,200,'drag1');
-drag1.inputEnabled = true;
-drag1.input.enableDrag(true);
+
+function verificaPosicaoResposta(){
+
+}
+
 
 function avaliaResposta (){
     if(drag1.x == 30){
@@ -181,7 +226,6 @@ function avaliaResposta (){
 
 
 drag1.events.onDragStop.add(dropHandler, this);
-responder.inputEnabled = true;
 responder.events.onInputDown.add(avaliaResposta, this);
 }
 

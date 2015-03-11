@@ -88,6 +88,11 @@ drop8 = game.add.sprite(drop8_x,drop8_y,    'drop');
 drop9 = game.add.sprite(drop9_x,drop9_y,    'drop');
 drop10 = game.add.sprite(drop10_x,drop10_y, 'drop');
 
+
+drag1 = game.add.sprite(300,200,'drag1');
+drag1.inputEnabled = true;
+drag1.input.enableDrag(true);
+
 acerto1 = game.add.sprite(drop1_x,(drop1_y-10),'acerto');
 acerto2 = game.add.sprite(drop2_x,(drop2_y-10),'acerto');
 acerto3 = game.add.sprite(drop3_x,(drop3_y-10),'acerto');
@@ -112,9 +117,7 @@ erro10 = game.add.sprite(drop10_x,(drop10_y-10),'erro');
 
 
 
-drag1 = game.add.sprite(300,200,'drag1');
-drag1.inputEnabled = true;
-drag1.input.enableDrag(true);
+
 
 
 acerto1.visible = false;
@@ -140,67 +143,67 @@ erro8.visible = false;
 erro9.visible = false;
 erro10.visible = false;
 
-responder = game.add.sprite(630,200, 'responder');
+responder = game.add.sprite(drop10_x,200, 'responder');
 responder.inputEnabled = true;
 
 // Controla o Drop dos itens 	
 	function dropHandler() {
         // Posição 1
-                if (drag1.x>29 && drag1.x<149 && drag1.y<79 && drag1.y>49){
-                drag1.x = 30;
+                if (drag1.x>24 && drag1.x<144 && drag1.y>49 && drag1.y<99){
+                drag1.x = 25;
                 drag1.y = 50;
            }
         
             // Posição 2  
-            if (drag1.x>179 && drag1.x<299 && drag1.y<79 && drag1.y>49  ){
-                drag1.x = 180;
+            if (drag1.x>150 && drag1.x<270 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 150;
                 drag1.y = 50;
            }
           
             // Posição 3  
-            if (drag1.x>329 && drag1.x<449 && drag1.y<79 && drag1.y>49  ){
-                drag1.x = 330;
+            if (drag1.x>275 && drag1.x<395 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 275;
                 drag1.y = 50;
            }
          
             // Posição 4 
-            if (drag1.x>479 && drag1.x<599 && drag1.y<79 && drag1.y>49  ){
-                drag1.x = 480;
+            if (drag1.x>400 && drag1.x<520 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 400;
                 drag1.y = 50;
            }
            
              // Posição 5 
-            if (drag1.x>629 && drag1.x<749 && drag1.y<79 && drag1.y>49  ){
-                drag1.x = 630;
+            if (drag1.x>525 && drag1.x<645 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 525;
                 drag1.y = 50;
            } 
            
                // Posição 6 
-            if (drag1.x>29 && drag1.x<179 && drag1.y<120 && drag1.y>89  ){
-                drag1.x = 30;
+            if (drag1.x>24 && drag1.x<144 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 25;
                 drag1.y = 100;
            } 
            
                // Posição 7 
-            if (drag1.x>179 && drag1.x<329 && drag1.y<120 && drag1.y>89  ){
-                drag1.x = 180;
+            if (drag1.x>150 && drag1.x<270 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 150;
                 drag1.y = 100;
            } 
            
               // Posição 8 
-            if (drag1.x>329 && drag1.x<479 && drag1.y<120 && drag1.y>89  ){
-                drag1.x = 330;
+            if (drag1.x>275 && drag1.x<395 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 275;
                 drag1.y = 100;
            } 
            
              // Posição 9 
-            if (drag1.x>479 && drag1.x<629  && drag1.y<120 && drag1.y>89  ){
-                drag1.x = 480;
+            if (drag1.x>400 && drag1.x<520  && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 400;
                 drag1.y = 100;
            } 
           // Posição 10 
-            if (drag1.x>629 && drag1.x<779 && drag1.y<120 && drag1.y>89  ){
-                drag1.x = 630;
+            if (drag1.x>525 && drag1.x<645 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 525;
                 drag1.y = 100;
            } 
         
@@ -213,7 +216,7 @@ function verificaPosicaoResposta(){
 
 
 function avaliaResposta (){
-    if(drag1.x == 30){
+    if(drag1.x == drop1_x){
     acerto1.visible = true;
     acerto1.bringToTop;
     }

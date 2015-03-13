@@ -1,11 +1,9 @@
 /*!
- * HTML5 Drag and Drop for Moodle v1.0.0
+ * HTML5 Drag and Drop with gaps for Moodle v1.0.0
  * http://github.com/davidluz
  * Date: 2015-01-03 
  */
- 
- 
- //Atividade1 Ã© um objeto
+
 Atividade1 = {};
 
 //States da Atividade
@@ -15,17 +13,30 @@ Atividade1.Feedback = function(){ };
  
 
 //Global configuration
-var game = new Phaser.Game(680, 260, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
+var game = new Phaser.Game(680, 360, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
+
+
+
 
 function preload(){
 
-game.load.image('bg', 'imgs/bg.png');
+game.load.image('bg',    'imgs/bg.png');
 game.load.image('drag1', 'imgs/drag1.png');
 game.load.image('drag2', 'imgs/drag2.png');
+game.load.image('drag3', 'imgs/drag3.png');
+game.load.image('drag4', 'imgs/drag4.png');
+game.load.image('drag5', 'imgs/drag5.png');
+game.load.image('drag6', 'imgs/drag6.png');
+game.load.image('drag7', 'imgs/drag7.png');
+game.load.image('drag8', 'imgs/drag8.png');
+game.load.image('drag9', 'imgs/drag9.png');
+game.load.image('drag10', 'imgs/drag10.png');
 game.load.image('drop', 'imgs/drop.png');
 game.load.image('responder', 'imgs/responder.png');
+game.load.image('responder2','imgs/responder2.png');
 game.load.image('acerto','imgs/acerto.png');
 game.load.image('erro','imgs/erro.png');
+
 
 }
 
@@ -33,65 +44,102 @@ game.load.image('erro','imgs/erro.png');
 
 
 function create(){
-    
 
-//Seta as respostas
-var gabarito1 = false;
-var gabarito2 = false;
-var gabarito3 = false;
-var gabarito4 = false;
-var gabarito5 = false;
-var gabarito6 = false;
-var gabarito7 = false;
-var gabarito8 = false;
-var gabarito9 = false;
-var gabarito10 = false;
+//Definição das posições no grid
+posicao1 = new Object();
+posicao1.x = 25;
+posicao1.y = 50;
+
+posicao2 = new Object();
+posicao2.x = 150;
+posicao2.y = 50;
+
+posicao3 = new Object();
+posicao3.x = 275;
+posicao3.y = 50;
+
+posicao4 = new Object();
+posicao4.x = 400;
+posicao4.y = 50;
+
+posicao5 = new Object();
+posicao5.x = 525;
+posicao5.y = 50;
+
+posicao6 = new Object();
+posicao6.x = 25;
+posicao6.y = 100;
+
+posicao7 = new Object();
+posicao7.x = 150;
+posicao7.y = 100;
+
+posicao8 = new Object();
+posicao8.x = 275;
+posicao8.y = 100;
+
+posicao9 = new Object();
+posicao9.x = 400;
+posicao9.y = 100;
+
+posicao10 = new Object();
+posicao10.x = 525;
+posicao10.y = 100;
+
+ 
+// grupo com drags
+ drags = game.add.group();	   
 
 
-//Variáveis que guardam as posições corretas
-var drop1_x = 25;
-var drop1_y = 50;
-var drop2_x = 150;
-var drop2_y = 50;
-var drop3_x = 275;
-var drop3_y = 50;
-var drop4_x = 400;
-var drop4_y = 50;
-var drop5_x = 525;
-var drop5_y = 50;
-var drop6_x = 25;
-var drop6_y = 100;
-var drop7_x = 150;
-var drop7_y = 100;
-var drop8_x = 275;
-var drop8_y = 100;
-var drop9_x = 400;
-var drop9_y = 100;
-var drop10_x = 525;
-var drop10_y = 100;
-
-
-
-//Sprites do State
 game.stage.backgroundColor = '#fff';
 bg = game.add.sprite(0, 0, 'bg');
 
+//Gera os Drops dinamicamente
+drop = [];
+for(var i=1; i<11;i++) {
+var xPosition = eval('posicao'+i+'.x');
+var yPosition = eval('posicao'+i+'.y');
+drop[i] = game.add.sprite(xPosition, yPosition,'drop');
+}
 
-drop1 = game.add.sprite(drop1_x,drop1_y,   'drop');
-drop2 = game.add.sprite(drop2_x,drop2_y,   'drop');
-drop3 = game.add.sprite(drop3_x,drop3_y,   'drop');
-drop4 = game.add.sprite(drop4_x,drop4_y,   'drop');
-drop5 = game.add.sprite(drop5_x,drop5_y,   'drop');
-drop6 = game.add.sprite(drop6_x,drop6_y,   'drop');
-drop7 = game.add.sprite(drop7_x,drop7_y,   'drop');
-drop8 = game.add.sprite(drop8_x,drop8_y,    'drop');
-drop9 = game.add.sprite(drop9_x,drop9_y,    'drop');
-drop10 = game.add.sprite(drop10_x,drop10_y, 'drop');
+//Gera os drags dinamicamente
+drag = [];
+for(var i=1; i<11;i++){
+var xPosition = eval('posicao'+i+'.x');
+var yPosition = eval('posicao'+i+'.y');
+var currentDrag = 'drag'+i;
+var currentDropHandler = 'dropHandler['+i+']';
+console.log(currentDropHandler);
+drag[i] = game.add.sprite(xPosition, yPosition+100,currentDrag);
+drag[i].inputEnabled = true;
+drag[i].input.enableDrag(true);
+drag[i].events.onDragStop.add(largar, this); // o this já indica que a função será aplicada neste objeto
 
 
-drag1 = game.add.sprite(300,200,'drag1');
-drag1.inputEnabled = true;
-drag1.input.enableDrag(true);
+function largar(dropedItem){
+				for (var i=1; i<11; i++){
+					var boundsA = drop[i].getBounds();
+					var boundsB = dropedItem.getBounds();
+
+					if(Phaser.Rectangle.intersects(boundsA, boundsB)){
+    				dropedItem.x = drop[i].x;
+    				dropedItem.y = drop[i].y;
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+/*
+
+
 
 acerto1 = game.add.sprite(drop1_x,(drop1_y-10),'acerto');
 acerto2 = game.add.sprite(drop2_x,(drop2_y-10),'acerto');
@@ -114,10 +162,6 @@ erro7 = game.add.sprite(drop7_x,(drop7_y-10),'erro');
 erro8 = game.add.sprite(drop8_x,(drop8_y-10),'erro');
 erro9 = game.add.sprite(drop9_x,(drop9_y-10),'erro');
 erro10 = game.add.sprite(drop10_x,(drop10_y-10),'erro');
-
-
-
-
 
 
 acerto1.visible = false;
@@ -146,102 +190,27 @@ erro10.visible = false;
 responder = game.add.sprite(drop10_x,200, 'responder');
 responder.inputEnabled = true;
 
-// Controla o Drop dos itens 	
-	function dropHandler() {
-        // Posição 1
-                if (drag1.x>24 && drag1.x<144 && drag1.y>49 && drag1.y<99){
-                drag1.x = 25;
-                drag1.y = 50;
-           }
-        
-            // Posição 2  
-            if (drag1.x>150 && drag1.x<270 && drag1.y>49 && drag1.y<99  ){
-                drag1.x = 150;
-                drag1.y = 50;
-           }
-          
-            // Posição 3  
-            if (drag1.x>275 && drag1.x<395 && drag1.y>49 && drag1.y<99  ){
-                drag1.x = 275;
-                drag1.y = 50;
-           }
-         
-            // Posição 4 
-            if (drag1.x>400 && drag1.x<520 && drag1.y>49 && drag1.y<99  ){
-                drag1.x = 400;
-                drag1.y = 50;
-           }
-           
-             // Posição 5 
-            if (drag1.x>525 && drag1.x<645 && drag1.y>49 && drag1.y<99  ){
-                drag1.x = 525;
-                drag1.y = 50;
-           } 
-           
-               // Posição 6 
-            if (drag1.x>24 && drag1.x<144 && drag1.y>99 && drag1.y<140  ){
-                drag1.x = 25;
-                drag1.y = 100;
-           } 
-           
-               // Posição 7 
-            if (drag1.x>150 && drag1.x<270 && drag1.y>99 && drag1.y<140  ){
-                drag1.x = 150;
-                drag1.y = 100;
-           } 
-           
-              // Posição 8 
-            if (drag1.x>275 && drag1.x<395 && drag1.y>99 && drag1.y<140  ){
-                drag1.x = 275;
-                drag1.y = 100;
-           } 
-           
-             // Posição 9 
-            if (drag1.x>400 && drag1.x<520  && drag1.y>99 && drag1.y<140  ){
-                drag1.x = 400;
-                drag1.y = 100;
-           } 
-          // Posição 10 
-            if (drag1.x>525 && drag1.x<645 && drag1.y>99 && drag1.y<140  ){
-                drag1.x = 525;
-                drag1.y = 100;
-           } 
+
         
         }
 
 
 function verificaPosicaoResposta(){
 
-}
 
 
-function avaliaResposta (){
-    if(drag1.x == drop1_x){
-    acerto1.visible = true;
-    acerto1.bringToTop;
-    }
-    else{
-    erro1.visible = true;
-    acerto1.bringToTop;
-    }
+*/
 
-}
-
-
-drag1.events.onDragStop.add(dropHandler, this);
-responder.events.onInputDown.add(avaliaResposta, this);
-}
 
 function update(){
 
+	
 }
 
 function goToPlay(){
 
 //game.state.start('Play');
 }
-
-
 
 
 

@@ -122,7 +122,7 @@ drag[i].inputEnabled = true;
 drag[i].input.enableDrag(true);
 drag[i].events.onDragStop.add(largar, this); // o this já indica que a função será aplicada neste objeto
 drag[i].name = i;
-drag[i].resposta = 0;
+drag[i].resposta = false;
 
 }
 
@@ -138,7 +138,7 @@ function largar(dropedItem){
 					if(Phaser.Rectangle.intersects(boundsA, boundsB)){
 					dropedItem.x = drop[i].x;
     				dropedItem.y = drop[i].y;
-    				
+    				drag[i].resposta = 1;
     		
     				}    
     				
@@ -189,13 +189,98 @@ function enviarResposta(){
 // Resposta 1***************
 
 for(var i=1; i<=10; i++){
-if(drag[i].y == 50 || drag[1].y == 100) 
 
+if(drag[i].y == 50 || drag[1].y == 100) {
 drag[i].resposta = 1;
+}
   
-else
+else{
 drag[i].resposta = 0;  
 }
+}
+avaliaResposta();
+
+}
+
+function avaliaResposta(){
+
+    //Avalia resposta 1
+	if(drag[1].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 2
+	if(drag[2].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 3
+	if(drag[3].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 4
+	if(drag[4].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 5
+	if(drag[5].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+    //Avalia resposta 6
+	if(drag[6].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+	
+	//Avalia resposta 7
+	if(drag[7].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 8
+	if(drag[8].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+	//Avalia resposta 9
+	if(drag[9].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
+
+	//Avalia resposta 10
+	if(drag[10].resposta==1){
+		console.log('acertou');
+	}
+	else{
+		console.log('errou');
+	}
 
 
 
@@ -209,9 +294,6 @@ drag[i].resposta = 0;
 
 
 function update(){
-
-
-
 
 
 }

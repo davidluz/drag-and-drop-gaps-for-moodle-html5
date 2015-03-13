@@ -113,6 +113,7 @@ console.log(currentDropHandler);
 drag[i] = game.add.sprite(xPosition, yPosition+100,currentDrag);
 drag[i].inputEnabled = true;
 drag[i].input.enableDrag(true);
+<<<<<<< HEAD
 drag[i].events.onDragStop.add(largar, this); // o this já indica que a função será aplicada neste objeto
 
 
@@ -138,6 +139,83 @@ function largar(dropedItem){
 
 
 /*
+
+
+=======
+
+dropHandler = function(){
+return dropHandler[i];
+} 
+
+drag[i].events.onDragStop.add(largar, this);
+
+
+function largar(){
+console.log("largou");
+}
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+drag1 = game.add.sprite(drop1_x,200,'drag1');
+drag1.inputEnabled = true;
+drag1.input.enableDrag(true);
+>>>>>>> origin/master
+
+drag2 = game.add.sprite(drop2_x,200,'drag2');
+drag2.inputEnabled = true;
+drag2.input.enableDrag(true);
+
+drag3 = game.add.sprite(drop3_x,200,'drag3');
+drag3.inputEnabled = true;
+drag3.input.enableDrag(true);
+
+
+drag4 = game.add.sprite(drop4_x,200,'drag4');
+drag4inputEnabled = true;
+drag4.input.enableDrag(true);
+
+drag5 = game.add.sprite(drop5_x,200,'drag5');
+drag5.inputEnabled = true;
+drag5.input.enableDrag(true);
+
+drag6 = game.add.sprite(drop6_x,200,'drag6');
+drag6.inputEnabled = true;
+drag6.input.enableDrag(true);
+
+drag7 = game.add.sprite(drop7_x,250,'drag7');
+drag7.inputEnabled = true;
+drag7.input.enableDrag(true);
+
+drag8 = game.add.sprite(drop8_x,250,'drag8');
+drag8.inputEnabled = true;
+drag8.input.enableDrag(true);
+
+drag9 = game.add.sprite(drop9_x,250,'drag9');
+drag9.inputEnabled = true;
+drag9.input.enableDrag(true);
+
+drag10 = game.add.sprite(drop10_x,250,'drag10');
+drag10.inputEnabled = true;
+drag10.input.enableDrag(true);
 
 
 
@@ -190,7 +268,78 @@ erro10.visible = false;
 responder = game.add.sprite(drop10_x,200, 'responder');
 responder.inputEnabled = true;
 
+<<<<<<< HEAD
 
+=======
+// Controla o Drop dos itens 	
+	function dropHandler() {
+        // Posição 1
+                if (drag1.x>24 && drag1.x<144 && drag1.y>49 && drag1.y<99){
+                drag1.x = 25;
+                drag1.y = 50;
+           }
+        
+            // Posição 2  
+            if (drag1.x>150 && drag1.x<270 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 150;
+                drag1.y = 50;
+           }
+          
+            // Posição 3  
+            if (drag1.x>275 && drag1.x<395 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 275;
+                drag1.y = 50;
+           }
+         
+            // Posição 4 
+            if (drag1.x>400 && drag1.x<520 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 400;
+                drag1.y = 50;
+           }
+           
+             // Posição 5 
+            if (drag1.x>525 && drag1.x<645 && drag1.y>49 && drag1.y<99  ){
+                drag1.x = 525;
+                drag1.y = 50;
+           } 
+           
+               // Posição 6 
+            if (drag1.x>24 && drag1.x<144 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 25;
+                drag1.y = 100;
+           } 
+           
+               // Posição 7 
+            if (drag1.x>150 && drag1.x<270 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 150;
+                drag1.y = 100;
+           } 
+           
+              // Posição 8 
+            if (drag1.x>275 && drag1.x<395 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 275;
+                drag1.y = 100;
+           } 
+           
+             // Posição 9 
+            if (drag1.x>400 && drag1.x<520  && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 400;
+                drag1.y = 100;
+           } 
+          // Posição 10 
+            if (drag1.x>525 && drag1.x<645 && drag1.y>99 && drag1.y<140  ){
+                drag1.x = 525;
+                drag1.y = 100;
+           } 
+
+
+         if(drag1.x == drop1_x){
+		responder = game.add.sprite(drop10_x,200, 'responder2');
+	    }
+
+
+           
+>>>>>>> origin/master
         
         }
 
@@ -199,8 +348,31 @@ function verificaPosicaoResposta(){
 
 
 
+<<<<<<< HEAD
 */
 
+=======
+function avaliaResposta (){
+    if(drag1.x == drop1_x){
+    acerto1.visible = true;
+    acerto1.bringToTop;
+    }
+
+    else{
+    erro1.visible = true;
+    acerto1.bringToTop;
+    }
+
+}
+
+
+drag1.events.onDragStop.add(dropHandler, this);
+responder.events.onInputDown.add(avaliaResposta, this);
+
+
+*/
+
+>>>>>>> origin/master
 
 function update(){
 

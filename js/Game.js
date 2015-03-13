@@ -206,39 +206,39 @@ function avaliaResposta(){
 
     //Avalia resposta 1
 	if(drag[1].resposta==1){
-		console.log('acertou');
+		acerto[1].visible = true; 
 	}
 	else{
-		console.log('errou');
+		erro[1].visible;
 	}
 
 	//Avalia resposta 2
 	if(drag[2].resposta==1){
-		console.log('acertou');
+		acerto[2].visible = true; 
 	}
 	else{
-		console.log('errou');
+		acerto[1].visible = true; 
 	}
 
 	//Avalia resposta 3
 	if(drag[3].resposta==1){
-		console.log('acertou');
+		acerto[3].visible;
 	}
 	else{
-		console.log('errou');
+		erro[3].visible;
 	}
 
 	//Avalia resposta 4
 	if(drag[4].resposta==1){
-		console.log('acertou');
+		acerto[4].visible;
 	}
 	else{
-		console.log('errou');
+		erro[4].visible;
 	}
 
 	//Avalia resposta 5
 	if(drag[5].resposta==1){
-		console.log('acertou');
+		erro[5].visible;
 	}
 	else{
 		console.log('errou');
@@ -253,10 +253,10 @@ function avaliaResposta(){
 	
 	//Avalia resposta 7
 	if(drag[7].resposta==1){
-		console.log('acertou');
+		acerto[7].visible;
 	}
 	else{
-		console.log('errou');
+		erro[7].visible;
 	}
 
 	//Avalia resposta 8

@@ -13,7 +13,7 @@ Atividade1.Feedback = function(){ };
  
 
 //Global configuration
-var game = new Phaser.Game(680, 450, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
+var game = new Phaser.Game(680, 350, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update});
 
 function preload(){
 
@@ -37,7 +37,26 @@ game.load.image('erro','imgs/erro.png');
 
 }
 
+	function openFancybox() {
+  $.fancybox({
+     'autoScale': true,
+     'transitionIn': 'elastic',
+     'transitionOut': 'elastic',
+     'speedIn': 500,
+     'speedOut': 300,
+     'autoDimensions': true,
+     'centerOnScroll': true,
+     'href' : '#feedback'
+  });
+}
 
+
+function goToFeedback(){
+
+		openFancybox();
+
+
+	}
 
 
 function create(){
@@ -199,89 +218,14 @@ drag[i].resposta = 0;
 }
 }
 avaliaResposta();
+openFancybox();
 
 }
 
 function avaliaResposta(){
 
     //Avalia resposta 1
-	if(drag[1].resposta==1){
-		acerto[1].visible = true; 
-	}
-	else{
-		erro[1].visible;
-	}
-
-	//Avalia resposta 2
-	if(drag[2].resposta==1){
-		acerto[2].visible = true; 
-	}
-	else{
-		acerto[1].visible = true; 
-	}
-
-	//Avalia resposta 3
-	if(drag[3].resposta==1){
-		acerto[3].visible;
-	}
-	else{
-		erro[3].visible;
-	}
-
-	//Avalia resposta 4
-	if(drag[4].resposta==1){
-		acerto[4].visible;
-	}
-	else{
-		erro[4].visible;
-	}
-
-	//Avalia resposta 5
-	if(drag[5].resposta==1){
-		erro[5].visible;
-	}
-	else{
-		console.log('errou');
-	}
-    //Avalia resposta 6
-	if(drag[6].resposta==1){
-		console.log('acertou');
-	}
-	else{
-		console.log('errou');
-	}
 	
-	//Avalia resposta 7
-	if(drag[7].resposta==1){
-		acerto[7].visible;
-	}
-	else{
-		erro[7].visible;
-	}
-
-	//Avalia resposta 8
-	if(drag[8].resposta==1){
-		console.log('acertou');
-	}
-	else{
-		console.log('errou');
-	}
-	//Avalia resposta 9
-	if(drag[9].resposta==1){
-		console.log('acertou');
-	}
-	else{
-		console.log('errou');
-	}
-
-	//Avalia resposta 10
-	if(drag[10].resposta==1){
-		console.log('acertou');
-	}
-	else{
-		console.log('errou');
-	}
-
 
 
 }
